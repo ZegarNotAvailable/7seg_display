@@ -129,14 +129,15 @@ int main(void)
 
       for (i = 4; i < 19; i++)
 	{
-	  DisplaySetColor(&LED8, i);
-	  SEG7_print_display(&LED8, i);
+	  DisplaySetColor (&LED8, i);
+	  SEG7_print_display (&LED8, i);
 	  SEG7_draw_display (&LED8);
 
-	  SEG7_HEX_display(&LED4,DisplayGetColor(&LED8));
-	  DisplaySetColor(&LED8, 14);
+	  SEG7_HEX_display (&LED4, DisplayGetColor (&LED8));
 	  HAL_Delay (500);
-      }
+	}
+      DisplaySetColor (&LED8, 14);
+
       /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

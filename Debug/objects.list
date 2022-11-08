@@ -1,6 +1,4 @@
-"./Core/Src/EnhancedFonts/arialBlack_20ptFontInfo.o"
 "./Core/Src/GFX_Color.o"
-"./Core/Src/GFX_EnhancedFonts.o"
 "./Core/Src/SEGMENTS.o"
 "./Core/Src/TFT_ILI9341.o"
 "./Core/Src/gpio.o"

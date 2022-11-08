@@ -11,7 +11,7 @@ Segments are always visible when Seg_OFF_Color is different of B_Ground_Color.
   DisplayInit(&LED4, 4, 80, 150, ILI9341_NAVY, ILI9341_YELLOW, ILI9341_DARKGREY);
 ```
 
-Create two displays with different colors.
+Creates two displays with different colors.
 ## Using.
 ### Message.
 ```

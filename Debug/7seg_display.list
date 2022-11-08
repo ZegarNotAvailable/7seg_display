@@ -35,15 +35,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  15 .debug_ranges 00000900  00000000  00000000  0002e3c8  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00002e1d  00000000  00000000  0002ecc8  2**0
+ 16 .debug_macro  0001682d  00000000  00000000  0002ecc8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000c8bb  00000000  00000000  00031ae5  2**0
+ 17 .debug_line   0000c8b9  00000000  00000000  000454f5  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00088252  00000000  00000000  0003e3a0  2**0
+ 18 .debug_str    00088252  00000000  00000000  00051dae  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000c65f2  2**0
+ 19 .comment      00000050  00000000  00000000  000da000  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000026d4  00000000  00000000  000c6644  2**2
+ 20 .debug_frame  000026d4  00000000  00000000  000da050  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -2302,15 +2302,15 @@ int main(void)
       for (i = 4; i < 19; i++)
  8001066:	2304      	movs	r3, #4
  8001068:	f887 3037 	strb.w	r3, [r7, #55]	; 0x37
- 800106c:	e030      	b.n	80010d0 <main+0x130>
+ 800106c:	e02a      	b.n	80010c4 <main+0x124>
 	{
-	  DisplaySetColor(&LED8, i);
+	  DisplaySetColor (&LED8, i);
  800106e:	f897 2037 	ldrb.w	r2, [r7, #55]	; 0x37
  8001072:	f107 0320 	add.w	r3, r7, #32
  8001076:	4611      	mov	r1, r2
  8001078:	4618      	mov	r0, r3
  800107a:	f7ff fb1b 	bl	80006b4 <DisplaySetColor>
-	  SEG7_print_display(&LED8, i);
+	  SEG7_print_display (&LED8, i);
  800107e:	f897 2037 	ldrb.w	r2, [r7, #55]	; 0x37
  8001082:	f107 0320 	add.w	r3, r7, #32
  8001086:	4611      	mov	r1, r2
@@ -2321,7 +2321,7 @@ int main(void)
  8001092:	4618      	mov	r0, r3
  8001094:	f7ff fbbf 	bl	8000816 <SEG7_draw_display>
 
-	  SEG7_HEX_display(&LED4,DisplayGetColor(&LED8));
+	  SEG7_HEX_display (&LED4, DisplayGetColor (&LED8));
  8001098:	f107 0320 	add.w	r3, r7, #32
  800109c:	4618      	mov	r0, r3
  800109e:	f7ff fb1d 	bl	80006dc <DisplayGetColor>
@@ -2331,21 +2331,22 @@ int main(void)
  80010aa:	4611      	mov	r1, r2
  80010ac:	4618      	mov	r0, r3
  80010ae:	f7ff fb6f 	bl	8000790 <SEG7_HEX_display>
-	  DisplaySetColor(&LED8, 14);
- 80010b2:	f107 0320 	add.w	r3, r7, #32
- 80010b6:	210e      	movs	r1, #14
- 80010b8:	4618      	mov	r0, r3
- 80010ba:	f7ff fafb 	bl	80006b4 <DisplaySetColor>
 	  HAL_Delay (500);
- 80010be:	f44f 70fa 	mov.w	r0, #500	; 0x1f4
- 80010c2:	f000 fa79 	bl	80015b8 <HAL_Delay>
+ 80010b2:	f44f 70fa 	mov.w	r0, #500	; 0x1f4
+ 80010b6:	f000 fa7f 	bl	80015b8 <HAL_Delay>
       for (i = 4; i < 19; i++)
- 80010c6:	f897 3037 	ldrb.w	r3, [r7, #55]	; 0x37
- 80010ca:	3301      	adds	r3, #1
- 80010cc:	f887 3037 	strb.w	r3, [r7, #55]	; 0x37
- 80010d0:	f897 3037 	ldrb.w	r3, [r7, #55]	; 0x37
- 80010d4:	2b12      	cmp	r3, #18
- 80010d6:	d9ca      	bls.n	800106e <main+0xce>
+ 80010ba:	f897 3037 	ldrb.w	r3, [r7, #55]	; 0x37
+ 80010be:	3301      	adds	r3, #1
+ 80010c0:	f887 3037 	strb.w	r3, [r7, #55]	; 0x37
+ 80010c4:	f897 3037 	ldrb.w	r3, [r7, #55]	; 0x37
+ 80010c8:	2b12      	cmp	r3, #18
+ 80010ca:	d9d0      	bls.n	800106e <main+0xce>
+	}
+      DisplaySetColor (&LED8, 14);
+ 80010cc:	f107 0320 	add.w	r3, r7, #32
+ 80010d0:	210e      	movs	r1, #14
+ 80010d2:	4618      	mov	r0, r3
+ 80010d4:	f7ff faee 	bl	80006b4 <DisplaySetColor>
   {
  80010d8:	e794      	b.n	8001004 <main+0x64>
  80010da:	bf00      	nop
