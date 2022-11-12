@@ -103,9 +103,9 @@ int main(void)
 
   ILI9341_ClearDisplay(ILI9341_MAGENTA);
   T7Display LED8;
-  DisplayInit(&LED8, 8, 0, 50, ILI9341_BLACK, ILI9341_GREEN, ILI9341_DARKGREY);
+  DisplayInit(&LED8, 8, 14, 0, 50, ILI9341_BLACK, ILI9341_GREEN, GRAPHITE);
   T7Display LED4;
-  DisplayInit(&LED4, 4, 80, 150, ILI9341_NAVY, ILI9341_YELLOW, ILI9341_DARKGREY);
+  DisplayInit(&LED4, 4, 7, 80, 150, ILI9341_NAVY, ILI9341_YELLOW, GRAPHITE);
 
 
   /* USER CODE END 2 */
@@ -134,7 +134,7 @@ int main(void)
 	  SEG7_draw_display (&LED8);
 
 	  SEG7_HEX_display (&LED4, DisplayGetColor (&LED8));
-	  HAL_Delay (500);
+	  HAL_Delay (1000);
 	}
       DisplaySetColor (&LED8, 14);
 
