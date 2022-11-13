@@ -7,9 +7,9 @@ Segments are always visible when Seg_OFF_Color is different of B_Ground_Color.
 ## Create display.
 ```
   T7Display LED8;
-  DisplayInit(&LED8, 8, 0, 50, ILI9341_BLACK, ILI9341_GREEN, ILI9341_DARKGREY);
+  DisplayInit(&LED8, 8, 14, 0, 50, ILI9341_BLACK, ILI9341_GREEN, GRAPHITE);
   T7Display LED4;
-  DisplayInit(&LED4, 4, 80, 150, ILI9341_NAVY, ILI9341_YELLOW, ILI9341_DARKGREY);
+  DisplayInit(&LED4, 4, 7, 80, 150, ILI9341_NAVY, ILI9341_YELLOW, GRAPHITE);
 ```
 
 Creates two displays with different colors.
@@ -28,6 +28,13 @@ for (i = 0; i < 8; i++)
 	}
 SEG7_draw_display (&LED8);
 ```
+You can print a string:
+```
+      char message[] =
+	  {"Kurs STM."};
+      SEG7_print_ASCII(&LED8, 0, message);
+```	
+  
 ### Print predefined mesages and uint16_t values.
 ```
 for (i = 4; i < 19; i++)
