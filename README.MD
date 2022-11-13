@@ -3,6 +3,7 @@ You can simple create displays one to eight digits wide.
 Dimensions of single digit are fixed.
 You can change colors of background (body) and segments ON and OFF.
 Segments are always visible when Seg_OFF_Color is different of B_Ground_Color.
+[video](https://youtu.be/zLBH-P7QVNw)
 ## Create display.
 ```
   T7Display LED8;
