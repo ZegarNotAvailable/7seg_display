@@ -115,15 +115,16 @@ int main(void)
   while (1)
   {
       uint8_t i;
-      uint8_t mesage[] =
-	{ 0x75, 0x1c, 0x50, 0x6d, 0x00, 0x6d, 0x31, 0x37 };
-
-      for (i = 0; i < 8; i++)
-	{
-	  uint8_t segments = mesage[i];
-	  uint8_t digit = i;
-	  SEG7_write_display (&LED8, digit, segments);
-	}
+      char message[] =
+	  {"Kurs STM."};
+//	{ 0x75, 0x1c, 0x50, 0x6d, 0x00, 0x6d, 0x31, 0x37 };
+      SEG7_print_ASCII(&LED8, 0, message);
+//      for (i = 0; i < 8; i++)
+//	{
+//	  uint8_t segments = message[i];
+//	  uint8_t digit = i;
+//	  SEG7_write_display (&LED8, digit, segments);
+//	}
       SEG7_draw_display (&LED8);
       HAL_Delay (5000);
 
@@ -137,6 +138,7 @@ int main(void)
 	  HAL_Delay (1000);
 	}
       DisplaySetColor (&LED8, 14);
+      SEG7_clr_display(&LED4);
 
       /* USER CODE END WHILE */
 

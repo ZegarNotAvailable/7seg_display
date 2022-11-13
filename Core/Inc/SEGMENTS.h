@@ -15,6 +15,7 @@
 #define SEG7_DIGIT_HIGH 50
 #define SEG7_HIGH_SP 10
 #define GRAPHITE 6371
+#define SEGMENT_DOT 128
 //#define SEG7_B_GROUND_COLOR ILI9341_NAVY
 //#define SEG7_COLOR_OFF ILI9341_DARKGREY
 //#define SEG7_COLOR_ON ILI9341_GREENYELLOW
@@ -67,5 +68,7 @@ void SEG7_make_display (T7Display* Display);
 void SEG7_print_display (T7Display* Display, uint8_t mesage);
 
 void SEG7_HEX_display (T7Display* Display, uint16_t value);	// Shows two bytes (value) as 4 HEX digits
+
+void SEG7_print_ASCII (T7Display* Display, uint8_t start, char* mesage);
 
 #endif /* SEGMENTS_H_ */
