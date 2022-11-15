@@ -20,11 +20,17 @@
 //#define SEG7_COLOR_OFF ILI9341_DARKGREY
 //#define SEG7_COLOR_ON ILI9341_GREENYELLOW
 
+typedef enum {
+N_SEGMENTS7  = 0,
+N_SEGMENTS14 = 1
+} DisplayType_t;
+
+
 // Struct for display
 typedef struct
 {
-	uint8_t 	N_Digits; // Display size
-	uint8_t 	N_Segments; // Display format 7 or 14
+	uint8_t 	N_Digits; 	// Display size 1 to 8
+	DisplayType_t 	N_Segments; 	// Display format 7 or 14
 	uint16_t	X_position; //
 	uint16_t	Y_position; //
 	uint16_t	B_Ground_Color; //
@@ -46,7 +52,7 @@ typedef struct
 //
 //} T14Display; // Display_t
 
-void DisplayInit(T7Display* Display, uint8_t N_Digits, uint8_t 	N_Segments, uint16_t X_position, uint16_t Y_position,
+void DisplayInit(T7Display* Display, uint8_t N_Digits, DisplayType_t N_Segments, uint16_t X_position, uint16_t Y_position,
 		 uint16_t B_Ground_Color, uint16_t Seg_ON_Color, uint16_t Seg_OFF_Color);
 
 void DisplaySetColor(T7Display* Display,  uint8_t Seg_ON_Color);

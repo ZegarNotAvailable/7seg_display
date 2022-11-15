@@ -72,19 +72,27 @@ const uint16_t CHR14SEG[]=
 
 
 // Display Init
-void DisplayInit(T7Display* Display, uint8_t N_Digits, uint8_t 	N_Segments, uint16_t X_position, uint16_t Y_position,
+void DisplayInit(T7Display* Display, uint8_t N_Digits, DisplayType_t N_Segments, uint16_t X_position, uint16_t Y_position,
 		 uint16_t B_Ground_Color, uint16_t Seg_ON_Color, uint16_t Seg_OFF_Color)
 
 {
-	Display->N_Digits = N_Digits; // Set initial size of display
-	Display->N_Segments = N_Segments;
-	Display->X_position = X_position;
-	Display->Y_position = Y_position;
-	Display->B_Ground_Color = B_Ground_Color; //
-	Display->Seg_ON_Color = Seg_ON_Color; //
-	Display->Seg_OFF_Color = Seg_OFF_Color; //
-	//Display->SEG7_buf[N_Digits];	// =	{ 0, 0, 0, 0, 0, 0, 0, 0 }; //Buffer
-	SEG7_make_display(Display);
+  if (N_Digits > 8)
+    {
+      N_Digits = 8;
+    }
+  if (N_Digits < 1)
+    {
+      N_Digits = 1;
+    }
+  Display->N_Digits = N_Digits; // Set initial size of display
+  Display->N_Segments = N_Segments;
+  Display->X_position = X_position;
+  Display->Y_position = Y_position;
+  Display->B_Ground_Color = B_Ground_Color; //
+  Display->Seg_ON_Color = Seg_ON_Color; //
+  Display->Seg_OFF_Color = Seg_OFF_Color; //
+  //Display->SEG7_buf[N_Digits];	// =	{ 0, 0, 0, 0, 0, 0, 0, 0 }; //Buffer
+  SEG7_make_display (Display);
 }
 
 void DisplaySetColor(T7Display* Display,  uint8_t Seg_ON_Color)
@@ -168,7 +176,7 @@ void SEG7_print_display (T7Display* Display, uint8_t mesage)
           }
 	else if (CHR > '@' && CHR < '[')	//letters
 	  {
-	    if (Display->N_Segments == 14)
+	    if (Display->N_Segments == N_SEGMENTS14)
 	      {
 		segments = CHR14SEG[CHR-'A'];
 	      }
@@ -219,7 +227,7 @@ void SEG7_print_ASCII (T7Display* Display, uint8_t start, char* message)
           }
 	else if (CHR > '@' && CHR < '[')	//letters
 	  {
-	    if (Display->N_Segments == 14)
+	    if (Display->N_Segments == N_SEGMENTS14)
 	      {
 		segments = CHR14SEG[CHR - 'A'];
 	      }
@@ -259,7 +267,7 @@ void SEG7_HEX_display (T7Display* Display, uint16_t value)
 
 void SEG7_write_display(T7Display* Display, uint8_t digit, uint16_t segments)
 {
-  if (Display->N_Segments == 14)	//If display type 14-segments set G1 and G2 instead of G
+  if (Display->N_Segments == N_SEGMENTS14)	//If display type 14-segments set G1 and G2 instead of G
   	  {
   	    if (segments & 0x40)	//segment G
   	      {
@@ -285,9 +293,9 @@ void SEG7_make_display (T7Display* Display)
   uint8_t i, j;
   for (i = 0; i < Display->N_Digits; i++)
     {
-      for (j = 0; j < (8 * ((Display->N_Segments == 14)+1)); j++)		// All segments on all digits
+      for (j = 0; j < (8 * ((Display->N_Segments == N_SEGMENTS14)+1)); j++)		// All segments on all digits
 	{
-	  if ((Display->N_Segments == 14) && j == 6)
+	  if ((Display->N_Segments == N_SEGMENTS14) && j == 6)
 	    {
 	      j++;
 	    }
@@ -312,9 +320,9 @@ void SEG7_draw_digit (T7Display* Display, uint8_t digit)
   uint16_t digit_to_draw = Display->SEG7_buf[digit];
 //  uint8_t segment_to_draw;
   uint8_t i;
-  for (i = 0; i < (8 * ((Display->N_Segments == 14) + 1 )); i++)
+  for (i = 0; i < (8 * ((Display->N_Segments == N_SEGMENTS14) + 1 )); i++)
     {
-      if ((Display->N_Segments == 14) && i == 6)
+      if ((Display->N_Segments == N_SEGMENTS14) && i == 6)
       	    {
       	      i++;	//don't draw segment G
       	    }
@@ -332,7 +340,7 @@ void SEG7_draw_digit (T7Display* Display, uint8_t digit)
 
 void SEG7_draw_segment (T7Display* Display, uint8_t digit, uint8_t segment, uint16_t Color)
 {
-  if ((digit >= Display->N_Digits) || (segment >= (8 * ((Display->N_Segments == 14) + 1 ))))
+  if ((digit >= Display->N_Digits) || (segment >= (8 * ((Display->N_Segments == N_SEGMENTS14) + 1 ))))
     {
       return;
     }
