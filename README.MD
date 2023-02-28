@@ -6,6 +6,9 @@ Segments are always visible when Seg_OFF_Color is different of B_Ground_Color.
 [video](https://youtu.be/zLBH-P7QVNw)
 ## Create display.
 ```
+  // Display Init
+  // void DisplayInit(T7Display* Display, uint8_t N_Digits, DisplayType_t N_Segments, uint16_t X_position, uint16_t Y_position,
+		 uint16_t B_Ground_Color, uint16_t Seg_ON_Color, uint16_t Seg_OFF_Color)
   T7Display LED8;
   DisplayInit(&LED8, 8, 14, 0, 50, ILI9341_BLACK, ILI9341_GREEN, GRAPHITE);
   T7Display LED4;
