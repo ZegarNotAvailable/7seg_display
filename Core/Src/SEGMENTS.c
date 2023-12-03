@@ -178,11 +178,11 @@ void SEG7_print_display (T7Display* Display, uint8_t mesage)
 	  {
 	    if (Display->N_Segments == N_SEGMENTS14)
 	      {
-		segments = CHR14SEG[CHR-'A'];
+			segments = CHR14SEG[CHR-'A'];
 	      }
 	    else
 	      {
-		segments = CHR7SEG[CHR-'A'];
+			segments = CHR7SEG[CHR-'A'];
 	      }
 
 	  }
@@ -192,11 +192,11 @@ void SEG7_print_display (T7Display* Display, uint8_t mesage)
 //	  {
 //	    if (segments & 0x40)	//segment G
 //	      {
-//		segments |= 0x300;	//segments G1 and G2
+//			segments |= 0x300;	//segments G1 and G2
 //	      }
 //	  }
 //	Display->SEG7_buf[i] = segments;
-      }
+    }
 
 }
 
@@ -229,11 +229,11 @@ void SEG7_print_ASCII (T7Display* Display, uint8_t start, char* message)
 	  {
 	    if (Display->N_Segments == N_SEGMENTS14)
 	      {
-		segments = CHR14SEG[CHR - 'A'];
+			segments = CHR14SEG[CHR - 'A'];
 	      }
 	    else
 	      {
-		segments = CHR7SEG[CHR - 'A'];
+			segments = CHR7SEG[CHR - 'A'];
 	      }
 
 	  }
@@ -257,7 +257,7 @@ void SEG7_HEX_display (T7Display* Display, uint16_t value)
 //      	  {
 //      	    if (segments & 0x40)	//segment G
 //      	      {
-//      		segments |= 0x300;	//segments G1 and G2
+//      			segments |= 0x300;	//segments G1 and G2
 //      	      }
 //      	  }
 //      Display->SEG7_buf[Display->N_Digits -1 - i] = segments;
@@ -271,7 +271,7 @@ void SEG7_write_display(T7Display* Display, uint8_t digit, uint16_t segments)
   	  {
   	    if (segments & 0x40)	//segment G
   	      {
-  		segments |= 0x300;	//segments G1 and G2
+  			segments |= 0x300;	//segments G1 and G2
   	      }
   	  }
   Display->SEG7_buf[digit] = segments;	//DOT,G,F,E,D,C,B,A or M,L,K,J,I,H,G2,G1,DOT,G,F,E,D,C,B,A
