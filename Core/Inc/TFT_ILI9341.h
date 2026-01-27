@@ -13,6 +13,8 @@
 #define ILI9341_USE_HW_RESET 1
 #define ILI9341_USE_CS 1
 
+#define IPS 1
+
 #define ILI9341_OPTIMIZE_HAL_SP1 1
 
 //

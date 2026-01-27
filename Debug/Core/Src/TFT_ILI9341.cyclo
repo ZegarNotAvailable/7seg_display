@@ -1,0 +1,10 @@
+../Core/Src/TFT_ILI9341.c:26:13:ILI9341_Delay	1
+../Core/Src/TFT_ILI9341.c:31:13:ILI9341_SendToTFT	4
+../Core/Src/TFT_ILI9341.c:59:13:ILI9341_SendCommand	1
+../Core/Src/TFT_ILI9341.c:77:13:ILI9341_SendCommandAndData	1
+../Core/Src/TFT_ILI9341.c:121:6:ILI9341_SetRotation	6
+../Core/Src/TFT_ILI9341.c:149:6:ILI9341_SetAddrWindow	1
+../Core/Src/TFT_ILI9341.c:172:6:ILI9341_WritePixel	5
+../Core/Src/TFT_ILI9341.c:192:6:ILI9341_DrawImage	3
+../Core/Src/TFT_ILI9341.c:204:6:ILI9341_ClearDisplay	5
+../Core/Src/TFT_ILI9341.c:287:6:ILI9341_Init	3

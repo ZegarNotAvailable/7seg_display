@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (10.3-2021.10)
+# Toolchain: GNU Tools for STM32 (13.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -60,8 +60,8 @@ all: main-build
 main-build: 7seg_display.elf secondary-outputs
 
 # Tool invocations
-7seg_display.elf 7seg_display.map: $(OBJS) $(USER_OBJS) C:\STM32CubeIDE\workspace_1.6.1\7seg_display\STM32F411RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "7seg_display.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\STM32CubeIDE\workspace_1.6.1\7seg_display\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="7seg_display.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+7seg_display.elf 7seg_display.map: $(OBJS) $(USER_OBJS) C:\Users\zegar\Documents\GitHub\7seg_display\STM32F411RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "7seg_display.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\zegar\Documents\GitHub\7seg_display\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="7seg_display.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

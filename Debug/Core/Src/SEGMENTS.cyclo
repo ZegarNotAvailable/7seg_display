@@ -1,0 +1,12 @@
+../Core/Src/SEGMENTS.c:72:6:DisplayInit	3
+../Core/Src/SEGMENTS.c:96:6:DisplaySetColor	1
+../Core/Src/SEGMENTS.c:101:10:DisplayGetColor	1
+../Core/Src/SEGMENTS.c:162:6:SEG7_print_display	8
+../Core/Src/SEGMENTS.c:205:6:SEG7_print_ASCII	10
+../Core/Src/SEGMENTS.c:249:6:SEG7_HEX_display	2
+../Core/Src/SEGMENTS.c:272:6:SEG7_write_display	3
+../Core/Src/SEGMENTS.c:284:6:SEG7_draw_display	2
+../Core/Src/SEGMENTS.c:293:6:SEG7_make_display	6
+../Core/Src/SEGMENTS.c:317:6:SEG7_clr_display	2
+../Core/Src/SEGMENTS.c:327:6:SEG7_draw_digit	6
+../Core/Src/SEGMENTS.c:352:6:SEG7_draw_segment	10
