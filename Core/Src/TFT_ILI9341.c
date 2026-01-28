@@ -179,9 +179,9 @@ void ILI9341_WritePixel(int16_t x, int16_t y, uint16_t color)
 		ILI9341_SetAddrWindow(x, y, 1, 1);
 
 		// Fulfill buffer with color
-#if (IPS == 1)
-		color = color ^ 0xffff;
-#endif
+//#if (IPS == 1)
+//		color = color ^ 0xffff;
+//#endif
 		DataToTransfer[0] = color >> 8;
 		DataToTransfer[1] = color & 0xFF;
 		// Push color bytes to RAM
@@ -203,9 +203,9 @@ void ILI9341_DrawImage(uint16_t x, uint16_t y, const uint8_t *img, uint16_t w, u
 
 void ILI9341_ClearDisplay(uint16_t Color)
 {
-#if (IPS == 1)
-		Color = Color ^ 0xffff;
-#endif
+//#if (IPS == 1)
+//		Color = Color ^ 0xffff;
+//#endif
 
 		// Set window for whole screen
 	ILI9341_SetAddrWindow(0, 0, ILI9341_TFTWIDTH, ILI9341_TFTHEIGHT);
@@ -321,4 +321,7 @@ void ILI9341_Init(SPI_HandleTypeDef *hspi)
 
     // Set selected Rotation
     ILI9341_SetRotation(ILI9341_ROTATION);
+#if (IPS == 1)
+    ILI9341_SendCommand(ILI9341_INVON);
+#endif
 }
